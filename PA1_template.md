@@ -18,6 +18,12 @@ Calculate the total number of steps taken per day.
 ```r
 total_steps_by_date <- aggregate(data$steps, by=list(data$date), FUN=sum)
 colnames(total_steps_by_date) <- c('date', 'total')
+```
+
+Make a histogram of the total number of steps taken each day.
+
+
+```r
 hist(total_steps_by_date$total, main='Histogram of total number of steps taken each day', xlab=NULL)
 total_steps_mean <- mean(total_steps_by_date$total, na.rm = TRUE)
 total_steps_median <- median(total_steps_by_date$total, na.rm = TRUE)
@@ -25,7 +31,7 @@ abline(v=total_steps_mean, col='red')
 abline(v=total_steps_median, col='blue')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 Calculate the mean and median of the total number of steps taken per day.
 
@@ -60,7 +66,7 @@ mean_steps_by_interval$time <- as.POSIXct(mean_steps_by_interval$time, format='%
 plot(mean_steps_by_interval$time, mean_steps_by_interval$mean, type='l', xlab='time', ylab='mean')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 Find 5-minute interval containing the maximum number of steps on average across all the days.
 
@@ -108,7 +114,7 @@ abline(v=total_steps_mean2, col='red')
 abline(v=total_steps_median2, col='blue')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 Calculate the mean and median of the total number of steps taken per day.
 
@@ -167,4 +173,4 @@ plot(mean_steps_by_interval_workday$time, mean_steps_by_interval_workday$mean, t
 plot(mean_steps_by_interval_weekend$time, mean_steps_by_interval_weekend$mean, type='l', ylim=c(0,250), xlab='time', ylab='mean', main='Weekends')
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 

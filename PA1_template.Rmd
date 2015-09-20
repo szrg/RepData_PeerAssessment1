@@ -21,6 +21,11 @@ Calculate the total number of steps taken per day.
 ```{r}
 total_steps_by_date <- aggregate(data$steps, by=list(data$date), FUN=sum)
 colnames(total_steps_by_date) <- c('date', 'total')
+```
+
+Make a histogram of the total number of steps taken each day.
+
+```{r}
 hist(total_steps_by_date$total, main='Histogram of total number of steps taken each day', xlab=NULL)
 total_steps_mean <- mean(total_steps_by_date$total, na.rm = TRUE)
 total_steps_median <- median(total_steps_by_date$total, na.rm = TRUE)

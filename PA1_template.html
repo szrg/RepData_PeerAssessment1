@@ -72,8 +72,9 @@ data &lt;- read.table(unz('activity.zip', 'activity.csv'), header=TRUE, sep=&quo
                    colClasses=c('numeric', 'activity_date', 'numeric'))</code></pre>
 <p>Calculate the total number of steps taken per day.</p>
 <pre class="r"><code>total_steps_by_date &lt;- aggregate(data$steps, by=list(data$date), FUN=sum)
-colnames(total_steps_by_date) &lt;- c('date', 'total')
-hist(total_steps_by_date$total, main='Histogram of total number of steps taken each day', xlab=NULL)
+colnames(total_steps_by_date) &lt;- c('date', 'total')</code></pre>
+<p>Make a histogram of the total number of steps taken each day.</p>
+<pre class="r"><code>hist(total_steps_by_date$total, main='Histogram of total number of steps taken each day', xlab=NULL)
 total_steps_mean &lt;- mean(total_steps_by_date$total, na.rm = TRUE)
 total_steps_median &lt;- median(total_steps_by_date$total, na.rm = TRUE)
 abline(v=total_steps_mean, col='red')
