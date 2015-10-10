@@ -37,7 +37,7 @@ data <- read.table(unz('activity.zip', 'activity.csv'), header=TRUE, sep=",",
                    colClasses=c('numeric', 'activity_date', 'numeric'))
 ```
 
-Here is a function to convenietly convert an interval number its time representation.
+Here is a function to convenietly convert an interval number to its time representation.
 
 ```{r}
 intervalToTime <- function(x) {

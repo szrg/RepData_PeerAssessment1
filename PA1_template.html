@@ -88,7 +88,7 @@ img {
 setAs(&quot;character&quot;, &quot;activity_date&quot;, function(from) as.Date(from, &quot;%Y-%m-%d&quot;))
 data &lt;- read.table(unz('activity.zip', 'activity.csv'), header=TRUE, sep=&quot;,&quot;, 
                    colClasses=c('numeric', 'activity_date', 'numeric'))</code></pre>
-<p>Here is a function to convenietly convert an interval number its time representation.</p>
+<p>Here is a function to convenietly convert an interval number to its time representation.</p>
 <pre class="r"><code>intervalToTime &lt;- function(x) {
     t &lt;- formatC(x, width=4, format='d', flag='0')
     t &lt;- sub('([[:digit:]]{2,2})$', ':\\1', t)
